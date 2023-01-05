@@ -1,0 +1,314 @@
+* {
+    box-sizing: border-box; /*padding and border included in width and height*/
+}
+
+body {
+    background: rgb(83, 196, 88);
+    background: linear-gradient(0deg, rgb(83, 196, 88) 0%, rgb(158, 240, 175) 100%) no-repeat;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    margin: 0; /*removes border around whole site*/
+}
+
+/*nav bar start*/
+
+.section-main {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.section-main h1 {
+    color:rgb(255, 255, 255);
+    font-size: 60px;
+    text-align: center;
+    width: 100%;
+}
+
+header {
+    z-index: 999;
+    position: fixed; /* fixed makes element position based on viewport*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+    transition: 0.6s;
+}
+
+header.sticky { /*no space, refers to a class with both elements (<header class="sticky">)*/
+    background-color: rgb(14, 79, 22);
+    padding: 15px 100px;
+
+}
+
+header .brand {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align:justify;
+    line-height: 20px;
+}
+
+header .menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+}
+
+header .menu a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 0 30px;
+    padding: 0 10px;
+    border-radius: 20px;
+
+    transition: 0.3s;
+    transition-property: color, background;
+}
+
+header .menu a:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+header .btn {
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+/*nav bar end*/
+
+.list-and-slideshow {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url(bg.jpg);
+    background-size: cover;
+    padding-bottom: 70px;
+    padding-top: 70px;
+    
+}
+
+.fact-list {
+    font-size: large;
+    min-width: 300px;
+    padding: 0 30px;
+}
+
+.slider-all {
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    aspect-ratio: 5/3;
+    max-width: 500px;
+    max-height: 300px;
+}
+
+.slider {
+    aspect-ratio: 5 / 3;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    border: 2px solid;
+
+}
+
+.slides {
+    width: 500%; /*500 percent?*/
+    display: flex;
+}
+
+
+.slides input {
+    display: none; /* hides radio btns*/
+}
+
+.slide {
+    width: 20%;
+    transition: 2s;
+    
+}
+
+.slide img {
+    max-width: 500px;
+    max-height: 300px;
+    aspect-ratio: 5 / 3;
+}
+
+
+/*styling for manual slide nav*/
+.navigation-manual { /*theres just labels in here?*/
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid rgb(168, 214, 30);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.manual-btn:not(:last-child) { /*modifies expect the last btn*/
+    
+}
+
+.manual-btn:hover {
+    background: rgb(168, 214, 30);
+}
+
+/*going through slides automatically*/
+/*these only mmove the first slide (slide first)*/
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first { /*moves the left margin of first img -20% over*/
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -60%;
+}
+
+/*css for auto nav*/
+.navigation-auto {
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation-auto div {
+    border: 2px solid rgb(168, 214, 30);
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    transition: 1s;
+}
+/*
+.navigation-auto div:not(:last-child) {
+    margin-top: 40px;
+}*/
+
+/*styling for when slides change automatically*/
+/*these auto-btns are just divs with styling (styled above)*/
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+    background: rgb(168, 214, 30);
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 { 
+    /*modify radio2 checked and navigation-auto's auto-btn2*/
+    background: rgb(168, 214, 30);
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+    background: rgb(168, 214, 30);
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+    background: rgb(168, 214, 30);
+}
+
+/*other than slides/top bar*/
+
+table, th, td {
+    background-color: rgba(123, 243, 123, 0.481);
+    margin: 10px;
+    border: 2px solid;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(226, 204, 117);
+}
+
+.section-two {
+    min-height: 100vh;
+    padding: 20px 100px;
+}
+
+.section-two h2 {
+    color: rgb(32, 32, 32);
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 30px 0;
+}
+
+.section-two p {
+    color: rgb(27, 27, 27);
+    font-size: 18px;
+    margin: 30px 0;
+}
+
+/* when screen becomes 1060px, */
+@media (max-width: 1023px) { /*media is for what the site is viewed on */
+    header .btn {
+        display: block;
+    }
+
+    header .menu {
+        position: fixed;
+        background:rgb(14, 79, 22);
+        flex-direction: column;
+        min-width: 400px;
+        height: 100vh;
+        top: 0;
+        right: -100%; /*hidden*/
+        padding: 80px 50px;
+        transition: 0.5s;
+        transition-property: right;
+    }
+    header .menu.active {
+        right: 0;
+    }
+
+    header .menu .close-btn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 25px;
+    }
+
+    header .menu a {
+        display: block;
+        font-size: 20px;
+        margin: 20px;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 630px) {
+    .section-main h1 {
+        font-size: 50px;
+        line-height: 60px;
+    }
+    .section-two {
+        padding: 20px 50px;
+    }
+}
